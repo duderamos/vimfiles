@@ -4,7 +4,7 @@ This is my presonal vim/gvim configuration. Feel free to clone it.
 
 ## How to use
 
-Clone this repository into `~/vim` and install the plugins using (vundle)[https://github.com/gmarik].
+Clone this repository into `~/vim` and install the plugins using [vundle](https://github.com/gmarik).
 
     [ -d ~/.vim ] && mv ~/.vim ~/.vim.old
     [ -r ~/.vimrc ] && mv ~/.vimrc ~/.vimrc.old
