@@ -11,6 +11,7 @@ Clone this repository into `~/vim` and install the plugins using [vundle](https:
     git clone https://github.com/duderamos/vimfiles.git ~/.vim
     git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
     ln -s ~/.vim/vimrc ~/.vimrc
+    cp .vim/fonts/VeraMono.ttf /usr/share/fonts/TTF
 
 Start `vim` and install the plugins with the following command:
 
