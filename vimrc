@@ -20,12 +20,15 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'Haron-Prime/evening_vim'
 Plugin 'evgenyzinoviev/vim-vendetta'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'Yggdroot/indentLine'
 
 filetype plugin indent on
 
 nmap <F2> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.git$', '.keep']
+
+nnoremap <F3> :IndentLinesToggle<CR>
 
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
@@ -66,7 +69,7 @@ set nobackup
 set noswapfile
 
 " Theme
-if has('gui_running')  
+if has('gui_running')
   set go-=m
   set go-=T
   set go-=r
@@ -90,6 +93,9 @@ set laststatus=2
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+
+let g:indentLine_char = '┆'
+let g:indentLine_enabled = 1
 
 syntax on
 
