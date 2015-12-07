@@ -67,6 +67,7 @@ set splitbelow
 
 set nobackup
 set noswapfile
+set noundofile
 
 " Theme
 if has('gui_running')
