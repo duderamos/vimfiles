@@ -130,6 +130,11 @@ function! OpenSpecHelper()
 endfunction
 map <leader>s :call OpenSpecHelper()<CR>
 
+function! OpenFactories()
+  execute ':tabfind factories.rb'
+endfunction
+map <leader>f :call OpenFactories()<CR>
+
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 " Shortcuts
