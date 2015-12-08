@@ -23,6 +23,8 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'Yggdroot/indentLine'
 Plugin 'vim-scripts/summerfruit256.vim'
 Plugin 'jonathanfilip/vim-lucius'
+Plugin 'reedes/vim-colors-pencil'
+Plugin 'NLKNguyen/papercolor-theme'
 
 filetype plugin indent on
 
@@ -53,6 +55,7 @@ set scrolloff=3
 set sidescrolloff=7
 set sidescroll=1
 
+set t_Co=256
 set cf
 set clipboard+=unnamed
 set history=256
@@ -82,8 +85,8 @@ if has('gui_running')
   set cursorcolumn
   hi CursorLine guibg=#222222
   hi CursorColumn guibg=#222222
-  set background=dark
-  colorscheme vendetta
+  set background=light
+  colorscheme PaperColor
   set guifont=Bitstream\ Vera\ Sans\ Mono
 endif
 
@@ -97,6 +100,7 @@ set laststatus=2
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline_theme = 'PaperColor'
 
 let g:indentLine_char = '┆'
 let g:indentLine_enabled = 1
@@ -163,5 +167,5 @@ vmap <leader>a: :Tabularize /:\zs<CR>
 cmap w!! w !sudo tee % > /dev/null
 nnoremap <leader>sr :!rake routes<cr>
 noremap <F12> :source ~/.vimrc<cr>
-nnoremap <F4> :colorscheme vendetta<cr>
-nnoremap <F5> :colorscheme summerfruit256<cr>
+nnoremap <F4> :set background=dark<cr>
+nnoremap <F5> :set background=light<cr>
