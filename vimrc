@@ -21,6 +21,8 @@ Plugin 'Haron-Prime/evening_vim'
 Plugin 'evgenyzinoviev/vim-vendetta'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'Yggdroot/indentLine'
+Plugin 'vim-scripts/summerfruit256.vim'
+Plugin 'jonathanfilip/vim-lucius'
 
 filetype plugin indent on
 
@@ -161,3 +163,5 @@ vmap <leader>a: :Tabularize /:\zs<CR>
 cmap w!! w !sudo tee % > /dev/null
 nnoremap <leader>sr :!rake routes<cr>
 noremap <F12> :source ~/.vimrc<cr>
+nnoremap <F4> :colorscheme vendetta<cr>
+nnoremap <F5> :colorscheme summerfruit256<cr>
