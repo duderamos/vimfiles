@@ -60,6 +60,7 @@ set cf
 set clipboard+=unnamed
 set history=256
 set autowrite
+set autoread
 set ruler
 set number
 set wrap
