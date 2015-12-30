@@ -75,6 +75,7 @@ set splitbelow
 set nobackup
 set noswapfile
 set noundofile
+set colorcolumn=100
 
 " Theme
 if has('gui_running')
