@@ -25,6 +25,7 @@ Plugin 'vim-scripts/summerfruit256.vim'
 Plugin 'jonathanfilip/vim-lucius'
 Plugin 'reedes/vim-colors-pencil'
 Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'msanders/snipmate.vim'
 
 filetype plugin indent on
 
@@ -163,6 +164,11 @@ function! OpenFactories()
 endfunction
 map <leader>f :call OpenFactories()<CR>
 
+function! RunRSpec()
+  execute ':!rspec --no-color %:p'
+endfunction
+map <leader>rs :call RunRSpec()<CR>
+
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 " Shortcuts
@@ -189,3 +195,10 @@ nnoremap <leader>sr :!rake routes<cr>
 noremap <F12> :source ~/.vimrc<cr>
 nnoremap <F4> :set background=dark<cr>
 nnoremap <F5> :set background=light<cr>
+
+if &term =~ '^screen'
+  execute "set <xUp>=\e[1;*A"
+  execute "set <xDown>=\e[1;*B"
+  execute "set <xRight>=\e[1;*C"
+  execute "set <xLeft>=\e[1;*D"
+endif
