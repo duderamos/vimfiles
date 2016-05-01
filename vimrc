@@ -76,7 +76,8 @@ set splitbelow
 set nobackup
 set noswapfile
 set noundofile
-set colorcolumn=100
+set colorcolumn=80,100
+hi ColorColumn ctermbg=235
 
 " Theme
 if has('gui_running')
@@ -110,9 +111,7 @@ if !exists('g:airline_symbols')
 endif
 
 " unicode symbols
-let g:airline_left_sep = '❱'
 let g:airline_left_alt_sep = '❱'
-let g:airline_right_sep = '❰'
 let g:airline_right_alt_sep = '❰'
 let g:airline_symbols.linenr = '␊'
 let g:airline_symbols.linenr = '␤'
@@ -167,7 +166,7 @@ map <leader>f :call OpenFactories()<CR>
 function! RunRSpec()
   execute ':!rspec --no-color %:p'
 endfunction
-map <leader>rs :call RunRSpec()<CR>
+map <F7> :call RunRSpec()<CR>
 
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
