@@ -17,6 +17,7 @@ Plugin 'msanders/snipmate.vim'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'burnettk/vim-angular'
+Plugin 'chemzqm/vim-jsx-improve'
 
 " Colour schemes
 Plugin 'chriskempson/base16-vim'
