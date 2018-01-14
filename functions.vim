@@ -10,6 +10,11 @@ function! CollapseMultipleBlankLines()
   ''
 :endfunction
 
+function! RemoveBindingPry()
+  silent! g/binding\.pry/d
+  ''
+:endfunction
+
 function! OpenGemFile()
   execute ':tabfind Gemfile'
 endfunction

@@ -38,3 +38,5 @@ map! <leader>- :call CollapseMultipleBlankLines()<CR>
 map <leader>g :call OpenGemFile()<CR>
 map <leader>r :call OpenRoutes()<CR>
 map <leader>f :call OpenFactories()<CR>
+map <leader>b :call RemoveBindingPry()<CR>
+map! <leader>b :call RemoveBindingPry()<CR>
