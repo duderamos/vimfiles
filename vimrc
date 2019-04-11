@@ -10,7 +10,6 @@ call plug#begin('~/.vim/plugged')
 
 " Plugins
 Plug 'godlygeek/tabular'
-Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'bling/vim-airline'
@@ -39,11 +38,6 @@ Plug 'reedes/vim-colors-pencil'
 Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
-
-" NERDTree
-nmap <F2> :NERDTreeToggle<CR>
-let NERDTreeShowHidden=1
-let NERDTreeIgnore=['\.git$', '.keep']
 
 " syntastic
 let g:syntastic_auto_loc_list=1
@@ -83,17 +77,15 @@ let g:indentLine_enabled = 1
 " Functions
 function! TrimWhiteSpace()
   silent! %s/\s\+$//
-  ''
 :endfunction
 
 function! CollapseMultipleBlankLines()
   silent! g/^\_$\n\_^$/d
-  ''
 :endfunction
 
 function! RemoveBindingPry()
   silent! g/binding\.pry/d
-  ''
+  "''
 :endfunction
 
 function! OpenGemFile()
@@ -117,10 +109,25 @@ function s:MkNonExDir(file, buf)
     endif
   endif
 endfunction
+
 augroup BWCCreateDir
   autocmd!
   autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
 augroup END
+
+function! InsertBindingPry()
+  normal O
+  call setline('.', 'binding.pry')
+endfunction
+
+function! CommentLine()
+  silent! s/^/\=b:comment_leader/
+  "''
+endfunction
+
+function! PrettifyJson()
+  execute ':%!python -m json.tool'
+endfunction
 
 " Shortcuts
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
@@ -163,6 +170,8 @@ map <leader>r :call OpenRoutes()<CR>
 map <leader>f :call OpenFactories()<CR>
 map <leader>b :call RemoveBindingPry()<CR>
 map! <leader>b :call RemoveBindingPry()<CR>
+map <leader>bi :call InsertBindingPry()<CR>
+map! <leader>bi :call InsertBindingPry()<CR>
 
 " Sets file types
 map  <leader><leader>c :set ft=css<CR>
@@ -187,13 +196,19 @@ autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml        set omnifunc=xmlcomplete#CompleteTags
 
-" autocmd BufWrite * call TrimWhiteSpace()
-" autocmd BufWrite * call CollapseMultipleBlankLines()
+autocmd BufWrite * :call TrimWhiteSpace()
+autocmd BufWrite * :call CollapseMultipleBlankLines()
 
 " Fix *.ts files as being recognized as xml
 autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
 autocmd BufWritePre * :%s/\s\+$//e
 
+autocmd FileType ruby,eruby let b:comment_leader = '#'
+autocmd FileType python     let b:comment_leader = '#'
+autocmd FileType javascript let b:comment_leader = '//'
+autocmd FileType shell let b:comment_leader = '#'
+
+noremap <silent> <leader>cc :call CommentLine()<CR>
 " General opts
 " Options
 set path=.,,
@@ -253,8 +268,14 @@ if has('gui_running')
   hi CursorColumn guibg=#222222
   set background=dark
   colorscheme PaperColor
-  set guifont=Bitstream\ Vera\ Sans\ Mono
+  if has("gui_gtk2")
+    set guifont=Bitstream\ Vera\ Sans\ Mono
+  elseif has("gui_macvim")
+    set guifont=Roboto\ Mono\ for\ Powerline
+  endif
 endif
+
+cab tabe tab drop
 
 syntax on
 
