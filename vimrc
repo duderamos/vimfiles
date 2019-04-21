@@ -1,51 +1,59 @@
 set nocompatible
-filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
 
 " Plugins
-Plugin 'gmarik/vundle'
-
-Plugin 'godlygeek/tabular'
-Plugin 'scrooloose/nerdtree.git'
-Plugin 'scrooloose/syntastic'
-Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-endwise'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'Yggdroot/indentLine'
-Plugin 'msanders/snipmate.vim'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'burnettk/vim-angular'
-Plugin 'chemzqm/vim-jsx-improve'
+Plug 'godlygeek/tabular'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-rails', { 'for': 'ruby' }
+Plug 'tpope/vim-endwise'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'kchmck/vim-coffee-script', { 'for': 'coffeescript' }
+Plug 'Yggdroot/indentLine'
+Plug 'msanders/snipmate.vim'
+Plug 'edkolev/tmuxline.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'burnettk/vim-angular', { 'for': 'js' }
+Plug 'chemzqm/vim-jsx-improve', { 'for': 'jsx' }
+"Plugin 'pangloss/vim-javascript'
+"Plugin 'w0rp/ale'
 
 " Colour schemes
-Plugin 'chriskempson/base16-vim'
-Plugin 'Haron-Prime/evening_vim'
-Plugin 'evgenyzinoviev/vim-vendetta'
-Plugin 'vim-scripts/summerfruit256.vim'
-Plugin 'jonathanfilip/vim-lucius'
-Plugin 'reedes/vim-colors-pencil'
-Plugin 'NLKNguyen/papercolor-theme'
+Plug 'chriskempson/base16-vim'
+Plug 'Haron-Prime/evening_vim'
+Plug 'evgenyzinoviev/vim-vendetta'
+Plug 'vim-scripts/summerfruit256.vim'
+Plug 'jonathanfilip/vim-lucius'
+Plug 'reedes/vim-colors-pencil'
+Plug 'NLKNguyen/papercolor-theme'
 
-" Plugins opts
+call plug#end()
+
+" NERDTree
 nmap <F2> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.git$', '.keep']
 
+" syntastic
 let g:syntastic_auto_loc_list=1
 let g:syntastic_aggregate_errors=1
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['eslint', 'jshint']
 let g:syntastic_typescript_checkers = ['eslint', 'tslint']
 let g:syntastic_html_tidy_ignore_errors = ['proprietary attribute "ng-']
 let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['ruby', 'javascript', 'typescript'], 'passive_filetypes': ['html'] }
 
+" vim-airline
 set laststatus=2
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
@@ -57,7 +65,6 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 
-" unicode symbols
 let g:airline_left_alt_sep = '❱'
 let g:airline_right_alt_sep = '❰'
 let g:airline_symbols.linenr = '␊'
@@ -69,6 +76,7 @@ let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
+" indentLine
 let g:indentLine_char = '┆'
 let g:indentLine_enabled = 1
 
@@ -99,6 +107,20 @@ endfunction
 function! OpenFactories()
   execute ':tabfind factories.rb'
 endfunction
+
+" Creates parent directories on save
+function s:MkNonExDir(file, buf)
+  if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+    let dir=fnamemodify(a:file, ':h')
+    if !isdirectory(dir)
+      call mkdir(dir, 'p')
+    endif
+  endif
+endfunction
+augroup BWCCreateDir
+  autocmd!
+  autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+augroup END
 
 " Shortcuts
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
@@ -163,16 +185,18 @@ autocmd FileType python     set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml        set omnifunc=xmlcomplete#CompleteTags
 
 " autocmd BufWrite * call TrimWhiteSpace()
 " autocmd BufWrite * call CollapseMultipleBlankLines()
 
 " Fix *.ts files as being recognized as xml
 autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
+autocmd BufWritePre * :%s/\s\+$//e
 
 " General opts
 " Options
-set path=.,,**
+set path=.,,
 
 " Two spaces indentation
 set tabstop=2
@@ -241,3 +265,5 @@ if &term =~ '^screen'
   execute "set <xRight>=\e[1;*C"
   execute "set <xLeft>=\e[1;*D"
 endif
+
+cab tabe tab drop
