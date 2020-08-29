@@ -4,18 +4,15 @@ This is my presonal vim/gvim configuration. Feel free to clone it.
 
 ## How to use
 
-Clone this repository into `~/vim` and install the plugins using [vundle](https://github.com/gmarik).
+Clone this repository into `~/vim` and start using vim/gvim.
 
     [ -d ~/.vim ] && mv ~/.vim ~/.vim.old
     [ -r ~/.vimrc ] && mv ~/.vimrc ~/.vimrc.old
     git clone https://github.com/duderamos/vimfiles.git ~/.vim
-    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
     ln -s ~/.vim/vimrc ~/.vimrc
-    cp .vim/fonts/VeraMono.ttf /usr/share/fonts/TTF
+    [ $(uname -o) = "GNU/Linux" ] && cp .vim/fonts/VeraMono.ttf /usr/share/fonts/TTF
 
-Start `vim` and install the plugins with the following command:
-
-    :PluginInstall
+Start `vim` and see plugins be setup automatically for you.
 
 ## Credits
 

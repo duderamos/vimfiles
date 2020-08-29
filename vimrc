@@ -9,33 +9,21 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Plugins
-Plug 'godlygeek/tabular'
 Plug 'scrooloose/syntastic'
 Plug 'ekalinin/Dockerfile.vim'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'tpope/vim-endwise'
-Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-Plug 'kchmck/vim-coffee-script', { 'for': 'coffeescript' }
+Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
-Plug 'msanders/snipmate.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'kien/ctrlp.vim'
-Plug 'burnettk/vim-angular', { 'for': 'js' }
 Plug 'chemzqm/vim-jsx-improve', { 'for': 'jsx' }
-"Plugin 'pangloss/vim-javascript'
-"Plugin 'w0rp/ale'
 
 " Colour schemes
-Plug 'chriskempson/base16-vim'
-Plug 'Haron-Prime/evening_vim'
-Plug 'evgenyzinoviev/vim-vendetta'
-Plug 'vim-scripts/summerfruit256.vim'
-Plug 'jonathanfilip/vim-lucius'
 Plug 'reedes/vim-colors-pencil'
-Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
 
@@ -53,7 +41,7 @@ let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tmuxline#enabled = 0
 let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_theme = 'papercolor'
+let g:airline_theme = 'minimalist'
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -85,7 +73,6 @@ function! CollapseMultipleBlankLines()
 
 function! RemoveBindingPry()
   silent! g/binding\.pry/d
-  "''
 :endfunction
 
 function! OpenGemFile()
@@ -115,11 +102,6 @@ augroup BWCCreateDir
   autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
 augroup END
 
-function! InsertBindingPry()
-  normal O
-  call setline('.', 'binding.pry')
-endfunction
-
 function! CommentLine()
   silent! s/^/\=b:comment_leader/
   "''
@@ -146,32 +128,15 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-nmap <leader>a= :Tabularize /=<CR>
-vmap <leader>a= :Tabularize /=<CR>
-nmap <leader>a: :Tabularize /:\zs<CR>
-vmap <leader>a: :Tabularize /:\zs<CR>
-
 " Save file with root permission
 cmap w!! w !sudo tee % > /dev/null
 
-" Rails
-nnoremap <leader>sr :!rake routes<cr>
-
-" Reload .vimrc
-noremap <F12> :source ~/.vimrc<cr>
-
 " Funcion shortcuts
-map <leader>= :call TrimWhiteSpace()<CR>
-map! <leader>= :call TrimWhiteSpace()<CR>
-map <leader>- :call CollapseMultipleBlankLines()<CR>
-map! <leader>- :call CollapseMultipleBlankLines()<CR>
 map <leader>g :call OpenGemFile()<CR>
 map <leader>r :call OpenRoutes()<CR>
 map <leader>f :call OpenFactories()<CR>
 map <leader>b :call RemoveBindingPry()<CR>
 map! <leader>b :call RemoveBindingPry()<CR>
-map <leader>bi :call InsertBindingPry()<CR>
-map! <leader>bi :call InsertBindingPry()<CR>
 
 " Sets file types
 map  <leader><leader>c :set ft=css<CR>
@@ -230,7 +195,7 @@ set sidescrolloff=7
 set sidescroll=1
 
 set t_Co=256 " Number of colours
-set clipboard+=unnamed
+set clipboard+=unnamedplus
 set history=256
 set autowrite
 set autoread " read file if it's modified
@@ -255,6 +220,8 @@ set noundofile
 set colorcolumn=80,100
 hi ColorColumn ctermbg=235
 
+colorscheme pencil
+
 " GUI
 " Theme
 if has('gui_running')
@@ -267,15 +234,12 @@ if has('gui_running')
   hi CursorLine guibg=#222222
   hi CursorColumn guibg=#222222
   set background=dark
-  colorscheme PaperColor
   if has("gui_gtk2")
     set guifont=Bitstream\ Vera\ Sans\ Mono
   elseif has("gui_macvim")
     set guifont=Roboto\ Mono\ for\ Powerline
   endif
 endif
-
-cab tabe tab drop
 
 syntax on
 
@@ -288,3 +252,8 @@ if &term =~ '^screen'
 endif
 
 cab tabe tab drop
+
+" GitGutter
+highlight GitGutterAdd    guifg=#009900 ctermfg=2
+highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+highlight GitGutterDelete guifg=#ff2222 ctermfg=1
