@@ -121,6 +121,7 @@ nnoremap <C-w> :tabclose<CR>
 nnoremap <C-right> :tabnext<CR>
 nnoremap <C-left> :tabprevious<CR>
 nnoremap <C-q> :q!<CR>
+nnoremap <C-e> :Explore<CR>
 
 " Navigate through splits
 nnoremap <C-J> <C-W><C-J>
@@ -153,6 +154,7 @@ map  <leader><leader>y :set ft=yaml<CR>
 
 filetype plugin indent on
 
+set complete-=i
 " audocmd
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType python     set omnifunc=pythoncomplete#Complete
@@ -176,7 +178,7 @@ autocmd FileType shell let b:comment_leader = '#'
 noremap <silent> <leader>cc :call CommentLine()<CR>
 " General opts
 " Options
-set path=.,,
+set path=.,,**
 
 " Two spaces indentation
 set tabstop=2
