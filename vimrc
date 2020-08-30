@@ -21,6 +21,10 @@ Plug 'Yggdroot/indentLine'
 Plug 'edkolev/tmuxline.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'chemzqm/vim-jsx-improve', { 'for': 'jsx' }
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'dense-analysis/ale'
+Plug 'jparise/vim-graphql'
 
 " Colour schemes
 Plug 'reedes/vim-colors-pencil'
@@ -61,6 +65,11 @@ let g:airline_symbols.whitespace = 'Ξ'
 " indentLine
 let g:indentLine_char = '┆'
 let g:indentLine_enabled = 1
+
+" ale
+let g:airline#extensions#ale#enabled = 1
+let b:ale_fixers = ['prettier', 'eslint']
+let g:ale_fix_on_save = 1
 
 " Functions
 function! TrimWhiteSpace()
@@ -168,7 +177,9 @@ autocmd BufWrite * :call CollapseMultipleBlankLines()
 
 " Fix *.ts files as being recognized as xml
 autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
-autocmd BufWritePre * :%s/\s\+$//e
+" autocmd BufWritePre * :%s/\s\+$//e
+
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 
 autocmd FileType ruby,eruby let b:comment_leader = '#'
 autocmd FileType python     let b:comment_leader = '#'
