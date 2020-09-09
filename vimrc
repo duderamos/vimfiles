@@ -9,7 +9,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Plugins
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -32,12 +32,12 @@ Plug 'reedes/vim-colors-pencil'
 call plug#end()
 
 " syntastic
-let g:syntastic_auto_loc_list=1
-let g:syntastic_aggregate_errors=1
-let g:syntastic_javascript_checkers = ['eslint', 'jshint']
-let g:syntastic_typescript_checkers = ['eslint', 'tslint']
-let g:syntastic_html_tidy_ignore_errors = ['proprietary attribute "ng-']
-let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['ruby', 'javascript', 'typescript'], 'passive_filetypes': ['html'] }
+" let g:syntastic_auto_loc_list=1
+" let g:syntastic_aggregate_errors=1
+" let g:syntastic_javascript_checkers = ['eslint', 'jshint']
+" let g:syntastic_typescript_checkers = ['eslint', 'tslint']
+" let g:syntastic_html_tidy_ignore_errors = ['proprietary attribute "ng-']
+" let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['ruby', 'javascript', 'typescript'], 'passive_filetypes': ['html'] }
 
 " vim-airline
 set laststatus=2
