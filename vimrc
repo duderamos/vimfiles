@@ -19,25 +19,19 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
 Plug 'edkolev/tmuxline.vim'
-Plug 'kien/ctrlp.vim'
 Plug 'chemzqm/vim-jsx-improve', { 'for': 'jsx' }
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'dense-analysis/ale'
 Plug 'jparise/vim-graphql'
 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 " Colour schemes
 Plug 'reedes/vim-colors-pencil'
 
 call plug#end()
-
-" syntastic
-" let g:syntastic_auto_loc_list=1
-" let g:syntastic_aggregate_errors=1
-" let g:syntastic_javascript_checkers = ['eslint', 'jshint']
-" let g:syntastic_typescript_checkers = ['eslint', 'tslint']
-" let g:syntastic_html_tidy_ignore_errors = ['proprietary attribute "ng-']
-" let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['ruby', 'javascript', 'typescript'], 'passive_filetypes': ['html'] }
 
 " vim-airline
 set laststatus=2
@@ -175,13 +169,13 @@ autocmd BufWrite * :call CollapseMultipleBlankLines()
 
 " Fix *.ts files as being recognized as xml
 autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
-" autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre * :%s/\s\+$//e
 
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 
 autocmd FileType ruby,eruby let b:comment_leader = '#'
 autocmd FileType python     let b:comment_leader = '#'
-autocmd FileType javascript let b:comment_leader = '//'
+autocmd FileType javascript,typescript let b:comment_leader = '//'
 autocmd FileType shell let b:comment_leader = '#'
 
 noremap <silent> <leader>cc :call CommentLine()<CR>
@@ -206,7 +200,7 @@ set sidescrolloff=7
 set sidescroll=1
 
 set t_Co=256 " Number of colours
-set clipboard+=unnamedplus
+set clipboard+=unnamed
 set history=256
 set autowrite
 set autoread " read file if it's modified
@@ -233,6 +227,8 @@ hi ColorColumn ctermbg=235
 
 colorscheme pencil
 
+set background=dark " Fix to work with tmux
+
 " GUI
 " Theme
 if has('gui_running')
@@ -244,7 +240,6 @@ if has('gui_running')
   set cursorcolumn
   hi CursorLine guibg=#222222
   hi CursorColumn guibg=#222222
-  set background=dark
   if has("gui_gtk2")
     set guifont=Bitstream\ Vera\ Sans\ Mono
   elseif has("gui_macvim")
@@ -268,3 +263,6 @@ cab tabe tab drop
 highlight GitGutterAdd    guifg=#009900 ctermfg=2
 highlight GitGutterChange guifg=#bbbb00 ctermfg=3
 highlight GitGutterDelete guifg=#ff2222 ctermfg=1
+
+nmap =j :%!python -m json.tool<CR>ggVG=
+nmap <C-p> :Ag<Cr>
