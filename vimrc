@@ -238,6 +238,7 @@ colorscheme pencil
 set background=dark " Fix to work with tmux
 
 set termwinsize=10*100
+set termguicolors
 
 " GUI
 " Theme
