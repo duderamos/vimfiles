@@ -60,6 +60,9 @@ let g:airline_symbols.whitespace = 'Ξ'
 let g:indentLine_char = '┆'
 let g:indentLine_enabled = 1
 
+" fzf
+let g:fzf_layout = { 'down': '30%' }
+
 " ale
 let g:airline#extensions#ale#enabled = 1
 
