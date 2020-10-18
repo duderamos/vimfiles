@@ -133,6 +133,11 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+tnoremap <C-J> <C-W><C-J>
+tnoremap <C-K> <C-W><C-K>
+tnoremap <C-L> <C-W><C-L>
+tnoremap <C-H> <C-W><C-H>
+
 " Save file with root permission
 cmap w!! w !sudo tee % > /dev/null
 
@@ -231,6 +236,8 @@ hi ColorColumn ctermbg=235
 colorscheme pencil
 
 set background=dark " Fix to work with tmux
+
+set termwinsize=10*100
 
 " GUI
 " Theme
