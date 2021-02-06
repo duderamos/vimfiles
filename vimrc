@@ -138,6 +138,10 @@ tnoremap <C-K> <C-W><C-K>
 tnoremap <C-L> <C-W><C-L>
 tnoremap <C-H> <C-W><C-H>
 
+inoremap <C-v> <ESC>"+pa
+vnoremap <C-c> "+y
+vnoremap <C-d> "+d
+
 " Save file with root permission
 cmap w!! w !sudo tee % > /dev/null
 
