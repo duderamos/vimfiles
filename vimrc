@@ -66,6 +66,19 @@ let g:fzf_layout = { 'down': '30%' }
 " ale
 let g:airline#extensions#ale#enabled = 1
 
+let g:ale_fix_on_save = 1
+
+let g:ale_linters = {
+\   'javascript': ['standard'],
+\   'ruby': ['standardrb']
+\}
+
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['standard'],
+\   'ruby': ['standardrb'],
+\}
+
 " Functions
 function! TrimWhiteSpace()
   silent! %s/\s\+$//
@@ -176,8 +189,9 @@ autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml        set omnifunc=xmlcomplete#CompleteTags
 
-autocmd BufWrite * :call TrimWhiteSpace()
-autocmd BufWrite * :call CollapseMultipleBlankLines()
+" Commented in favour of ALE
+" autocmd BufWrite * :call TrimWhiteSpace()
+" autocmd BufWrite * :call CollapseMultipleBlankLines()
 
 " Fix *.ts files as being recognized as xml
 autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
