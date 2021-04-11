@@ -66,16 +66,19 @@ let g:fzf_layout = { 'down': '30%' }
 " ale
 let g:airline#extensions#ale#enabled = 1
 
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 
 let g:ale_linters = {
 \   'javascript': ['standard'],
-\   'ruby': ['standardrb']
+\   'typescript': ['standard'],
+\   'ruby': ['standardrb', 'reek', 'brakeman', 'debride'],
+\   'dockerfile': ['hadolint']
 \}
 
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['standard'],
+\   'typescript': ['standard'],
 \   'ruby': ['standardrb'],
 \}
 
@@ -295,3 +298,6 @@ highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 
 nmap =j :%!python -m json.tool<CR>ggVG=
 nmap <C-p> :Ag<Cr>
+
+" Transparent background
+" highlight Normal guibg=NONE ctermbg=NONE
