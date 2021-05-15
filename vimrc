@@ -66,20 +66,14 @@ let g:fzf_layout = { 'down': '30%' }
 " ale
 let g:airline#extensions#ale#enabled = 1
 
-let g:ale_fix_on_save = 0
-
-let g:ale_linters = {
-\   'javascript': ['standard'],
-\   'typescript': ['standard'],
-\   'ruby': ['standardrb', 'reek', 'brakeman', 'debride'],
-\   'dockerfile': ['hadolint']
-\}
+let g:ale_fix_on_save = 1
 
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['standard'],
-\   'typescript': ['standard'],
-\   'ruby': ['standardrb'],
+\   'javascript': ['eslint', 'standard'],
+\   'typescript': ['eslint'],
+\   'ruby': ['rubocop'],
+\   'haml': ['hamllint'],
 \}
 
 " Functions
@@ -184,7 +178,7 @@ map  <leader><leader>y :set ft=yaml<CR>
 filetype plugin indent on
 
 set complete-=i
-" audocmd
+" autocmd
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType python     set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
@@ -194,7 +188,7 @@ autocmd FileType xml        set omnifunc=xmlcomplete#CompleteTags
 
 " Commented in favour of ALE
 " autocmd BufWrite * :call TrimWhiteSpace()
-" autocmd BufWrite * :call CollapseMultipleBlankLines()
+autocmd BufWrite * :call CollapseMultipleBlankLines()
 
 " Fix *.ts files as being recognized as xml
 autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
