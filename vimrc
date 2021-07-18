@@ -70,7 +70,7 @@ let g:ale_fix_on_save = 0
 
 let g:ale_linters = {
 \   'javascript': ['eslint'],
-\   'typescript': ['eslint'],
+\   'typescript': ['eslint', 'tsserver'],
 \   'ruby': ['standardrb', 'reek', 'brakeman', 'debride'],
 \   'dockerfile': ['hadolint']
 \}
