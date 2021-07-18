@@ -277,11 +277,7 @@ if has('gui_running')
   set cursorcolumn
   hi CursorLine guibg=#222222
   hi CursorColumn guibg=#222222
-  if has("gui_gtk2")
-    set guifont=Bitstream\ Vera\ Sans\ Mono
-  elseif has("gui_macvim")
-    set guifont=Roboto\ Mono\ for\ Powerline
-  endif
+  set guifont=Roboto\ Mono\ for\ Powerline
 endif
 
 syntax on
