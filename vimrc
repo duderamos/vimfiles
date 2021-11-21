@@ -127,10 +127,6 @@ function! CommentLine()
   "''
 endfunction
 
-function! PrettifyJson()
-  execute ':%!python -m json.tool'
-endfunction
-
 " Shortcuts
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 " Remove highlights
@@ -292,7 +288,6 @@ highlight GitGutterAdd    guifg=#009900 ctermfg=2
 highlight GitGutterChange guifg=#bbbb00 ctermfg=3
 highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 
-nmap =j :%!python -m json.tool<CR>ggVG=
 nmap <C-p> :Ag<Cr>
 
 " Transparent background
