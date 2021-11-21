@@ -23,6 +23,7 @@ Plug 'chemzqm/vim-jsx-improve', { 'for': 'jsx' }
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'dense-analysis/ale'
+Plug 'thaerkh/vim-workspace'
 Plug 'jparise/vim-graphql'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -81,6 +82,11 @@ let g:ale_fixers = {
 \   'typescript': ['eslint'],
 \   'ruby': ['standardrb'],
 \}
+
+" vim-workspaces
+let g:workspace_autocreate = 1
+let g:workspace_session_directory = $HOME . '/.vim/sessions/'
+let g:workspace_session_disable_on_args = 1
 
 " Functions
 function! TrimWhiteSpace()
