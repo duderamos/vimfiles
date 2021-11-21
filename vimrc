@@ -95,18 +95,6 @@ function! RemoveBindingPry()
   silent! g/binding\.pry/d
 :endfunction
 
-function! OpenGemFile()
-  execute ':tabfind Gemfile'
-endfunction
-
-function! OpenRoutes()
-  execute ':tabfind routes.rb'
-endfunction
-
-function! OpenFactories()
-  execute ':tabfind factories.rb'
-endfunction
-
 " Creates parent directories on save
 function s:MkNonExDir(file, buf)
   if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
@@ -158,9 +146,6 @@ vnoremap <C-d> "+d
 cmap w!! w !sudo tee % > /dev/null
 
 " Funcion shortcuts
-map <leader>g :call OpenGemFile()<CR>
-map <leader>r :call OpenRoutes()<CR>
-map <leader>f :call OpenFactories()<CR>
 map <leader>b :call RemoveBindingPry()<CR>
 map! <leader>b :call RemoveBindingPry()<CR>
 
