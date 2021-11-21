@@ -107,10 +107,6 @@ function! OpenFactories()
   execute ':tabfind factories.rb'
 endfunction
 
-function! RspecScope(linenumber)
-  execute ':!rspec %:linenumber'
-endfunction
-
 " Creates parent directories on save
 function s:MkNonExDir(file, buf)
   if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
@@ -171,7 +167,6 @@ map <leader>r :call OpenRoutes()<CR>
 map <leader>f :call OpenFactories()<CR>
 map <leader>b :call RemoveBindingPry()<CR>
 map! <leader>b :call RemoveBindingPry()<CR>
-map! <leader>res :call RspecScope(getline(.))<CR>
 
 " Sets file types
 map  <leader><leader>c :set ft=css<CR>
