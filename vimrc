@@ -131,6 +131,9 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 " Remove highlights
 noremap <C-l> :nohls<CR><C-L>
 
+" ALEFix
+noremap <leader>f :ALEFix<CR>
+
 nnoremap <C-t> :tabnew<CR>
 nnoremap <C-w> :tabclose<CR>
 nnoremap <C-right> :tabnext<CR>
