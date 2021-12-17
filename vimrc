@@ -25,6 +25,7 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'dense-analysis/ale'
 Plug 'thaerkh/vim-workspace'
 Plug 'jparise/vim-graphql'
+Plug 'editorconfig/editorconfig-vim'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
