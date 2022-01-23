@@ -1,0 +1,57 @@
+[submodule "pack/plugins/start/Dockerfile.vim"]
+	path = pack/plugins/start/Dockerfile.vim
+	url = https://github.com/ekalinin/Dockerfile.vim
+[submodule "pack/plugins/start/vim-airline"]
+	path = pack/plugins/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule "pack/plugins/start/vim-airline-themes"]
+	path = pack/plugins/start/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes
+[submodule "pack/plugins/start/vim-rails"]
+	path = pack/plugins/start/vim-rails
+	url = https://github.com/tpope/vim-rails
+[submodule "pack/plugins/start/vim-endwise"]
+	path = pack/plugins/start/vim-endwise
+	url = https://github.com/tpope/vim-endwise
+[submodule "pack/plugins/start/vim-fugitive"]
+	path = pack/plugins/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "pack/plugins/start/vim-dispatch"]
+	path = pack/plugins/start/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch
+[submodule "pack/plugins/start/vim-gitgutter"]
+	path = pack/plugins/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter
+[submodule "pack/plugins/start/tmuxline.vim"]
+	path = pack/plugins/start/tmuxline.vim
+	url = https://github.com/edkolev/tmuxline.vim
+[submodule "pack/plugins/start/vim-jsx-improve"]
+	path = pack/plugins/start/vim-jsx-improve
+	url = https://github.com/chemzqm/vim-jsx-improve
+[submodule "pack/plugins/start/typescript-vim"]
+	path = pack/plugins/start/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim
+[submodule "pack/plugins/start/vim-jsx-typescript"]
+	path = pack/plugins/start/vim-jsx-typescript
+	url = https://github.com/peitalin/vim-jsx-typescript
+[submodule "pack/plugins/start/ale"]
+	path = pack/plugins/start/ale
+	url = https://github.com/dense-analysis/ale
+[submodule "pack/plugins/start/vim-workspace"]
+	path = pack/plugins/start/vim-workspace
+	url = https://github.com/thaerkh/vim-workspace
+[submodule "pack/plugins/start/vim-graphql"]
+	path = pack/plugins/start/vim-graphql
+	url = https://github.com/jparise/vim-graphql
+[submodule "pack/plugins/start/editorconfig-vim"]
+	path = pack/plugins/start/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim
+[submodule "pack/plugins/start/fzf"]
+	path = pack/plugins/start/fzf
+	url = https://github.com/junegunn/fzf
+[submodule "pack/plugins/start/fzf.vim"]
+	path = pack/plugins/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
+[submodule "pack/colors/start/vim-colors-pencil"]
+	path = pack/colors/start/vim-colors-pencil
+	url = https://github.com/reedes/vim-colors-pencil
