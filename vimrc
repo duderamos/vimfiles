@@ -70,6 +70,14 @@ let g:airline#extensions#ale#enabled = 1
 
 let g:ale_fix_on_save = 0
 
+let g:ale_lint_delay = 1000
+
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = '.'
+let g:ale_sign_info = '-'
+let g:ale_cache_executable_check_failures = 1
+let g:ale_sign_column_always = 1
+
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'typescript': ['eslint', 'tsserver'],
@@ -250,6 +258,7 @@ set colorcolumn=80,100
 hi ColorColumn ctermbg=235
 
 colorscheme pencil
+let g:pencil_gutter_color = 1
 
 set background=dark " Fix to work with tmux
 
@@ -270,8 +279,6 @@ if has('gui_running')
   set guifont=Roboto\ Mono\ for\ Powerline
 endif
 
-syntax on
-
 " tmux
 if &term =~ '^screen'
   execute "set <xUp>=\e[1;*A"
@@ -282,11 +289,6 @@ endif
 
 cab tabe tab drop
 
-" GitGutter
-highlight GitGutterAdd    guifg=#009900 ctermfg=2
-highlight GitGutterChange guifg=#bbbb00 ctermfg=3
-highlight GitGutterDelete guifg=#ff2222 ctermfg=1
-
 nmap <C-p> :Ag<Cr>
 
 " Transparent background
@@ -294,3 +296,10 @@ nmap <C-p> :Ag<Cr>
 
 " https://www.chunkhang.com/blog/slow-syntax-highlighting-in-vim
 set regexpengine=1
+
+syntax on
+
+" ale sign colors
+highlight ALEErrorSign ctermfg=1
+highlight ALEWarningSign ctermfg=1
+highlight ALEInfoSign ctermfg=12
