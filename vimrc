@@ -143,13 +143,6 @@ map! <leader>b :call RemoveBindingPry()<CR>
 filetype plugin indent on
 
 set complete-=i
-" audocmd
-autocmd FileType ruby,eruby,rake set omnifunc=rubycomplete#Complete
-autocmd FileType python     set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
-autocmd FileType xml        set omnifunc=xmlcomplete#CompleteTags
 
 " Commented in favour of ALE
 autocmd BufWrite * :call TrimWhiteSpace()
