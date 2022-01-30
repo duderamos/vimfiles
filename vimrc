@@ -109,10 +109,10 @@ noremap <leader>f :ALEFix<CR>
 
 nnoremap <C-t> :tabnew<CR>
 nnoremap <C-w> :tabclose<CR>
-nnoremap <C-right> :tabnext<CR>
-nnoremap <C-left> :tabprevious<CR>
-nnoremap <C-q> :q!<CR>
-nnoremap <C-e> :Explore<CR>
+" nnoremap <C-right> :tabnext<CR>
+" nnoremap <C-left> :tabprevious<CR>
+" nnoremap <C-q> :q!<CR>
+" nnoremap <C-e> :Explore<CR>
 
 " Navigate through splits
 nnoremap <C-J> <C-W><C-J>
