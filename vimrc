@@ -113,6 +113,10 @@ nnoremap <C-w> :tabclose<CR>
 " nnoremap <C-left> :tabprevious<CR>
 " nnoremap <C-q> :q!<CR>
 " nnoremap <C-e> :Explore<CR>
+map <Left> <Nop>
+map <Down> <Nop>
+map <Up> <Nop>
+map <Right> <Nop>
 
 " Navigate through splits
 nnoremap <C-J> <C-W><C-J>
