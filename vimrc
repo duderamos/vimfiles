@@ -85,7 +85,7 @@ function s:MkNonExDir(file, buf)
   endif
 endfunction
 
-function BeautifulJson()
+function! BeautifulJson()
   silent! %!jq '.'
 endfunction
 
