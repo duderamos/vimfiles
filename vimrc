@@ -1,40 +1,5 @@
 set nocompatible
 
-" if empty(glob('~/.vim/autoload/plug.vim'))
-"   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-"     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-"   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-" endif
-"
-" call plug#begin('~/.vim/plugged')
-"
-" " Plugins
-" Plug 'ekalinin/Dockerfile.vim'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-" Plug 'tpope/vim-rails', { 'for': 'ruby' }
-" Plug 'tpope/vim-endwise'
-" Plug 'tpope/vim-fugitive'
-" Plug 'tpope/vim-dispatch'
-" Plug 'airblade/vim-gitgutter'
-" Plug 'Yggdroot/indentLine'
-" Plug 'edkolev/tmuxline.vim'
-" Plug 'chemzqm/vim-jsx-improve', { 'for': 'jsx' }
-" Plug 'leafgarland/typescript-vim'
-" Plug 'peitalin/vim-jsx-typescript'
-" Plug 'dense-analysis/ale'
-" Plug 'thaerkh/vim-workspace'
-" Plug 'jparise/vim-graphql'
-" Plug 'editorconfig/editorconfig-vim'
-"
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'junegunn/fzf.vim'
-"
-" " Colour schemes
-" Plug 'reedes/vim-colors-pencil'
-"
-" call plug#end()
-
 " vim-airline
 set laststatus=2
 let g:airline_powerline_fonts=1
