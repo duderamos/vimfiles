@@ -46,6 +46,7 @@
 [submodule "pack/plugins/start/editorconfig-vim"]
 	path = pack/plugins/start/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim
+  ignore = dirty
 [submodule "pack/plugins/start/fzf"]
 	path = pack/plugins/start/fzf
 	url = https://github.com/junegunn/fzf
