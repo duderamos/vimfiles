@@ -248,9 +248,6 @@ set regexpengine=1
 syntax on
 
 " ale sign colors
-highlight ALEErrorSign ctermfg=1 ctermbg=NONE
-highlight ALEWarningSign ctermfg=1 ctermbg=NONE
-highlight ALEInfoSign ctermfg=12 ctermbg=NONE
-
-" Transparent background
-" hi Normal guibg=NONE ctermbg=NONE
+highlight ALEErrorSign ctermfg=1
+highlight ALEWarningSign ctermfg=1
+highlight ALEInfoSign ctermfg=12
