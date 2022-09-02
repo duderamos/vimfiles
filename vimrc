@@ -101,6 +101,7 @@ endfunction
 
 " Shortcuts
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+
 " Remove highlights
 noremap <C-l> :nohls<CR><C-L>
 
@@ -163,6 +164,7 @@ noremap <silent> <leader>cc :call CommentLine()<CR>
 " General opts
 " Options
 set path=.,,**
+set mouse=
 
 " Two spaces indentation
 set tabstop=2
@@ -240,15 +242,15 @@ cab tabe tab drop
 
 nmap <C-p> :Ag<Cr>
 
-" Transparent background
-" highlight Normal guibg=NONE ctermbg=NONE
-
 " https://www.chunkhang.com/blog/slow-syntax-highlighting-in-vim
 set regexpengine=1
 
 syntax on
 
 " ale sign colors
-highlight ALEErrorSign ctermfg=1
-highlight ALEWarningSign ctermfg=1
-highlight ALEInfoSign ctermfg=12
+highlight ALEErrorSign ctermfg=1 ctermbg=NONE
+highlight ALEWarningSign ctermfg=1 ctermbg=NONE
+highlight ALEInfoSign ctermfg=12 ctermbg=NONE
+
+" Transparent background
+" hi Normal guibg=NONE ctermbg=NONE
