@@ -37,9 +37,6 @@
 [submodule "pack/plugins/start/ale"]
 	path = pack/plugins/start/ale
 	url = https://github.com/dense-analysis/ale
-[submodule "pack/plugins/start/vim-workspace"]
-	path = pack/plugins/start/vim-workspace
-	url = https://github.com/thaerkh/vim-workspace
 [submodule "pack/plugins/start/vim-graphql"]
 	path = pack/plugins/start/vim-graphql
 	url = https://github.com/jparise/vim-graphql
