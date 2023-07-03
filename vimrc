@@ -35,7 +35,12 @@ let g:airline#extensions#ale#enabled = 1
 
 let g:ale_fix_on_save = 0
 
-let g:ale_lint_delay = 1000
+" Lint files after 3secs idle
+let g:ale_lint_delay = 3000
+
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 1
+let g:ale_lint_on_enter = 1
 
 let g:ale_sign_error = '●'
 let g:ale_sign_warning = '.'
@@ -45,13 +50,12 @@ let g:ale_sign_column_always = 1
 
 let g:ale_linters = {
 \   'javascript': ['eslint'],
+\   'ruby': ['standardrb', 'reek', 'brakeman'],
 \   'typescript': ['eslint', 'tsserver'],
-\   'ruby': ['standardrb'],
 \   'dockerfile': ['hadolint']
 \}
 
 let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['eslint', 'standard'],
 \   'typescript': ['eslint'],
 \   'ruby': ['standardrb'],
