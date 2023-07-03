@@ -28,7 +28,7 @@ let g:indentLine_char = '┆'
 let g:indentLine_enabled = 1
 
 " fzf
-let g:fzf_layout = { 'down': '30%' }
+let g:fzf_layout = { 'down': '40%' }
 
 " ale
 let g:airline#extensions#ale#enabled = 1
@@ -88,6 +88,10 @@ function! BeautifulJson()
   silent! %!jq '.'
 endfunction
 
+function! CompressJson()
+  silent! %!jq -c '.'
+endfunction
+
 augroup BWCCreateDir
   autocmd!
   autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
@@ -108,7 +112,7 @@ noremap <C-l> :nohls<CR><C-L>
 noremap <leader>f :ALEFix<CR>
 
 nnoremap <C-t> :tabnew<CR>
-nnoremap <C-w> :tabclose<CR>
+" nnoremap <C-w> :tabclose<CR>
 " nnoremap <C-right> :tabnext<CR>
 " nnoremap <C-left> :tabprevious<CR>
 " nnoremap <C-q> :q!<CR>
@@ -158,6 +162,7 @@ autocmd FileType ruby,eruby,rake let b:comment_leader = '#'
 autocmd FileType python     let b:comment_leader = '#'
 autocmd FileType javascript,typescript let b:comment_leader = '//'
 autocmd FileType shell let b:comment_leader = '#'
+autocmd FileType make setlocal noexpandtab softtabstop=0 tabstop=8
 
 noremap <silent> <leader>cc :call CommentLine()<CR>
 " General opts
