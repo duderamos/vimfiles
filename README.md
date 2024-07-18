@@ -1,6 +1,6 @@
 # vimfiles
 
-This is my presonal vim/gvim configuration. Feel free to clone it.
+This is my personal vim/gvim configuration. Feel free to clone it.
 
 ## How to use
 
@@ -12,7 +12,9 @@ Clone this repository into `~/vim` and start using vim/gvim.
     ln -s ~/.vim/vimrc ~/.vimrc
     [ $(uname -o) = "GNU/Linux" ] && cp .vim/fonts/VeraMono.ttf /usr/share/fonts/TTF
 
-Start `vim` and see plugins be setup automatically for you.
+## Manage plug-ins
+
+I install plug-ins, as described [here](https://gist.github.com/duderamos/a4bcf2477031debdf1673c93703539ee)
 
 ## Credits
 
