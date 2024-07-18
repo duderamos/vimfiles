@@ -163,6 +163,7 @@ autocmd FileType python     let b:comment_leader = '#'
 autocmd FileType javascript,typescript let b:comment_leader = '//'
 autocmd FileType shell let b:comment_leader = '#'
 autocmd FileType make setlocal noexpandtab softtabstop=0 tabstop=8
+autocmd FileType markdown setlocal spell spelllang=en_au
 
 noremap <silent> <leader>cc :call CommentLine()<CR>
 " General opts
