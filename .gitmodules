@@ -56,3 +56,6 @@
 [submodule "pack/colors/start/dracula"]
 	path = pack/colors/start/dracula
 	url = git@github.com:dracula/vim.git
+[submodule "pack/plugins/start/vim-rhubarb"]
+	path = pack/plugins/start/vim-rhubarb
+	url = https://github.com/tpope/vim-rhubarb.git
