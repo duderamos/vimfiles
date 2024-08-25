@@ -63,10 +63,18 @@ let g:ale_fixers = {
 
 " Functions
 function! TrimWhiteSpace()
-  silent! %s/\s\+$//
+  if &ft =~ 'sql'
+    return
+  endif
+
+  silent! %s/\s\+$//e
 :endfunction
 
 function! CollapseMultipleBlankLines()
+  if &ft =~ 'sql'
+    return
+  endif
+
   silent! g/^\_$\n\_^$/d
 :endfunction
 
