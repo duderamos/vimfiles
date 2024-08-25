@@ -50,7 +50,7 @@ let g:ale_sign_column_always = 1
 
 let g:ale_linters = {
 \   'javascript': ['eslint'],
-\   'ruby': ['standardrb', 'reek', 'brakeman'],
+\   'ruby': ['standardrb', 'rubocop', 'sorbet', 'reek', 'brakeman'],
 \   'typescript': ['eslint', 'tsserver'],
 \   'dockerfile': ['hadolint']
 \}
@@ -58,7 +58,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \   'javascript': ['eslint', 'standard'],
 \   'typescript': ['eslint'],
-\   'ruby': ['standardrb'],
+\   'ruby': ['standardrb', 'rubocop', 'sorbet'],
 \}
 
 " Functions
