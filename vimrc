@@ -149,12 +149,11 @@ filetype plugin indent on
 set complete-=i
 
 " Commented in favour of ALE
-autocmd BufWrite * :call TrimWhiteSpace()
-autocmd BufWrite * :call CollapseMultipleBlankLines()
+autocmd BufWritePre * :call TrimWhiteSpace()
+autocmd BufWritePre * :call CollapseMultipleBlankLines()
 
 " Fix *.ts files as being recognized as xml
 autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
-autocmd BufWritePre * :%s/\s\+$//e
 
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 
