@@ -78,8 +78,10 @@ function! CollapseMultipleBlankLines()
   silent! g/^\_$\n\_^$/d
 :endfunction
 
-function! RemoveBindingPry()
+function! RemoveDebuggers()
   silent! g/binding\.pry/d
+  silent! g/binding\.break/d
+  silent! g/binding\.irb/d
 :endfunction
 
 " Creates parent directories on save
@@ -149,8 +151,8 @@ vnoremap <C-d> "+d
 cmap w!! w !sudo tee % > /dev/null
 
 " Funcion shortcuts
-map <leader>b :call RemoveBindingPry()<CR>
-map! <leader>b :call RemoveBindingPry()<CR>
+map <leader>b :call RemoveDebuggers()<CR>
+map! <leader>b :call RemoveDebuggers()<CR>
 
 filetype plugin indent on
 
