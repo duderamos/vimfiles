@@ -222,6 +222,9 @@ set noundofile
 set colorcolumn=80,100
 hi ColorColumn ctermbg=235
 
+set cursorline
+set cursorcolumn
+
 colorscheme pencil
 let g:pencil_gutter_color = 1
 
