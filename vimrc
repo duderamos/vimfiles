@@ -48,6 +48,8 @@ let g:ale_sign_info = '-'
 let g:ale_cache_executable_check_failures = 1
 let g:ale_sign_column_always = 1
 
+let g:jsonnet_fmt_on_save = 0
+
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'ruby': ['standardrb', 'rubocop', 'sorbet', 'reek', 'brakeman'],
@@ -59,6 +61,7 @@ let g:ale_fixers = {
 \   'javascript': ['eslint', 'standard'],
 \   'typescript': ['eslint'],
 \   'ruby': ['standardrb', 'rubocop', 'sorbet'],
+\   'jsonnet': [],
 \}
 
 " Functions
