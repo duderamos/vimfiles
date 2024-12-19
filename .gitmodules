@@ -62,3 +62,6 @@
 [submodule "pack/plugins/start/vim-jsonnet"]
 	path = pack/plugins/start/vim-jsonnet
 	url = https://github.com/google/vim-jsonnet
+[submodule "pack/plugins/start/vim-obsession"]
+	path = pack/plugins/start/vim-obsession
+	url = https://github.com/tpope/vim-obsession.git
