@@ -115,6 +115,14 @@ function! CommentLine()
   "''
 endfunction
 
+function! GenUUID()
+  r !uuidgen | tr '[:upper:]' '[:lower:]'
+  normal bJ
+endfunction
+
+" Generate UUID
+noremap <silent> <leader>gu :call GenUUID()<CR>
+
 " Shortcuts
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
