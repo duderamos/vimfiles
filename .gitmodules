@@ -65,3 +65,6 @@
 [submodule "pack/plugins/start/vim-obsession"]
 	path = pack/plugins/start/vim-obsession
 	url = https://github.com/tpope/vim-obsession.git
+[submodule "pack/plugins/start/claude"]
+	path = pack/plugins/start/claude
+	url = https://github.com/pasky/claude.vim.git
