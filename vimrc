@@ -64,6 +64,12 @@ let g:ale_fixers = {
 \   'jsonnet': [],
 \}
 
+" vimiki
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': 'md'}]
+let g:vimwiki_global_ext = 0
+let g:vimwiki_ext2syntax = {}
+
 " Functions
 function! TrimWhiteSpace()
   if &ft =~ 'sql'
