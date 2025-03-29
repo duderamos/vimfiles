@@ -68,3 +68,6 @@
 [submodule "pack/plugins/start/claude"]
 	path = pack/plugins/start/claude
 	url = https://github.com/pasky/claude.vim.git
+[submodule "/Users/eduardo/.vim/pack/plugins/start/vimwiki"]
+	path = /Users/eduardo/.vim/pack/plugins/start/vimwiki
+	url = https://github.com/vimwiki/vimwiki.git
