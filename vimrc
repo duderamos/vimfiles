@@ -65,8 +65,12 @@ let g:ale_fixers = {
 \}
 
 " vimiki
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-                      \ 'syntax': 'markdown', 'ext': 'md'}]
+let g:vimwiki_path = expand('~/vimwiki/')
+let g:vimwiki_list = [{'path': vimwiki_path,
+                      \ 'syntax': 'markdown',
+                      \ 'ext': 'md',
+                      \ 'diary_rel_path': 'journal',
+                      \ 'diary_frequency': 'weekly'}]
 let g:vimwiki_global_ext = 0
 let g:vimwiki_ext2syntax = {}
 
@@ -190,6 +194,19 @@ autocmd FileType javascript,typescript let b:comment_leader = '//'
 autocmd FileType shell let b:comment_leader = '#'
 autocmd FileType make setlocal noexpandtab softtabstop=0 tabstop=8
 autocmd FileType markdown setlocal spell spelllang=en_au
+
+function CommitChange()
+  let current_file_full_path=expand('%:p')
+
+  " Order here matters
+  let is_match=stridx(current_file_full_path, g:vimwiki_path)
+  if is_match == 0
+    " Add/commit files without showing any message in vim
+    silent! !git add % && git commit -q -m 'autosave' > /dev/null 2> /dev/null
+  endif
+endfunction
+
+autocmd BufWrite * :call CommitChange()
 
 noremap <silent> <leader>cc :call CommentLine()<CR>
 " General opts
