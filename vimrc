@@ -291,7 +291,7 @@ endif
 
 cab tabe tab drop
 
-nmap <C-p> :Ag<Cr>
+nmap <C-p> :Cp<Cr>
 
 " https://www.chunkhang.com/blog/slow-syntax-highlighting-in-vim
 set regexpengine=1
@@ -302,3 +302,6 @@ syntax on
 highlight ALEErrorSign ctermfg=1
 highlight ALEWarningSign ctermfg=1
 highlight ALEInfoSign ctermfg=12
+
+" FZF customisation for searching into hidden dirs/files
+command! -bang -nargs=* Cp call fzf#vim#ag(<q-args>, "--hidden --ignore .git", fzf#vim#with_preview(), <bang>0)
