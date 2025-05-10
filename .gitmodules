@@ -68,3 +68,6 @@
 [submodule "/Users/eduardo/.vim/pack/plugins/start/vimwiki"]
 	path = pack/plugins/start/vimwiki
 	url = https://github.com/vimwiki/vimwiki.git
+[submodule "pack/plugins/start/calendar-vim"]
+	path = pack/plugins/start/calendar-vim
+	url = https://github.com/mattn/calendar-vim
